@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Доска лавки · WonderVender</title><link rel="stylesheet" href="style.css"><script src="ui.js" defer></script></head>
+<body>
+<header class="top"><a class="brand" href="index.html"><span>✦</span> WonderVender</a><nav aria-label="Разделы"><a aria-current="page" href="index.html">Доска</a><a href="design.html">Геймдизайн</a><a href="workflow.html">Работа в Git</a></nav></header>
+<main>
+  <section class="hero">
+    <div><div class="eyebrow">МАСТЕРСКАЯ / ПЕРВЫЙ ПРОТОТИП</div><h1>Дела у котла<span>.</span></h1><p>Варим зелья, роняем склянки и договариваемся, кто сегодня держит сцену.</p></div>
+    <svg class="sigil" viewBox="0 0 248 186" aria-hidden="true"><path fill="#432c4e" d="M124 5 238 66 218 153 117 181 19 143 10 63Z"/><path fill="#2b2235" d="m49 77 141-8-16 77-49 22-54-14z"/><path fill="#584363" d="m49 77 39 17 38 72-55-12z"/><path fill="#79658a" d="m126 168 23-72 41-27-16 77z"/><path fill="#100f20" d="m45 71 24-22 88-8 40 22-8 21-52 20-58-4-31-15z"/><path fill="#91e3b2" d="m58 72 21-15 75-9 29 16-40 20-57 4z"/><path fill="#baffcf" d="m59 72 27 16 57-4 40-20-28 24-67 8z"/><path fill="#9de7bc" d="m103 49-12-21 13-9 10 12-5 17zm40-7 4-22 18-4 5 14-13 13z"/><path fill="#f4bd79" d="m194 24 4 13 13 4-13 4-4 13-4-13-13-4 13-4zM39 28l2 7 7 2-7 2-2 7-2-7-7-2 7-2zM215 109l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></svg>
+  </section>
+  <div class="notice" id="connection" role="status"><span>Подключаемся к доске…</span><button id="sync" class="subtle">Обновить</button></div>
+  <section class="summary" aria-label="Состояние доски">
+    <div><strong id="working">—</strong><span>В работе и на ревью</span></div><div><strong id="reserved">—</strong><span>Зон занято</span></div><div><strong id="ready">—</strong><span>Готово взять</span></div>
+  </section>
+  <section class="board-section" aria-labelledby="board-title">
+    <div class="toolbar"><div><div class="eyebrow">КОМАНДНАЯ ДОСКА</div><h2 id="board-title">Карточки прототипа</h2></div>
+    <div class="actions"><label class="filter"><span class="sr">Поиск по карточкам</span><input type="search" id="query" placeholder="Название, участник, зона"></label><button class="subtle" id="mine" aria-pressed="false" disabled>Мои</button><button class="primary" id="add" disabled>＋ Карточка</button></div></div>
+    <p id="message" role="status" class="hint"></p><div id="board" class="board"></div>
+  </section>
+  <noscript><p>Для доски нужен JavaScript. Документы открываются и без него.</p></noscript>
+</main>
+<footer>WONDERVENDER <span>◆</span> Карточки хранятся в Git · <a href="workflow.html">Как подключиться</a></footer>
+<dialog id="editor" aria-labelledby="edit-heading">
+  <form id="task-form">
+    <div class="dialog-top"><div><div class="eyebrow" id="task-id">НОВАЯ КАРТОЧКА</div><h2 id="edit-heading">Записать дело</h2></div><button class="subtle" type="button" id="close" aria-label="Закрыть">×</button></div>
+    <label>Название<input name="title" maxlength="120" required></label>
+    <label>Что должно получиться<textarea name="description" rows="4" maxlength="3000"></textarea></label>
+    <label>Зоны или пути<textarea name="areas" rows="2" placeholder="Assets/Scenes/Shop.unity&#10;Assets/Prototype/Potions"></textarea><small>Один путь или зона на строку. Статусы «В работе» и «На ревью» резервируют их.</small></label>
+    <label>Статус<select name="status"><option value="backlog">Идеи</option><option value="ready">Готово взять</option><option value="doing">В работе</option><option value="review">На ревью</option><option value="done">Готово</option></select></label>
+    <p id="form-error" role="alert" class="error"></p>
+    <div class="actions"><button class="primary" type="submit" id="save">Сохранить в Git</button><button class="subtle" type="button" id="reopen" hidden>Загрузить свежую карточку</button></div>
+  </form>
+</dialog>
+</body></html>

@@ -1,0 +1,12 @@
+{
+  "id": "WV-006",
+  "title": "Собрать проход смены",
+  "description": "Интегратор подключает префабы в ShopPrototype. Проверить полный цикл заказа, восстановление после потери запасов и сборку Windows. Начинать после WV-001–004.",
+  "status": "backlog",
+  "areas": [
+    "Assets/Scenes/ShopPrototype.unity",
+    "ProjectSettings/EditorBuildSettings.asset"
+  ],
+  "owner": "",
+  "updatedAt": null
+}
